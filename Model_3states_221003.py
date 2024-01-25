@@ -264,7 +264,7 @@ K=fittedParameters[1]
 def three_state_model(y, t, params):
     phi1, phi2, phi3, fgf = y
     alpha, beta, K = params #unpack params
-    dydt = [-fgf*phi1, fgf*(phi1-alpha*phi2), alpha*fgf*phi2, beta*(1/(1+(phi1/K))-fgf)] #mu=+ and nu=+ (Model 0) Good match analytical vs numerical
+    dydt = [-fgf*phi1, fgf*(phi1-alpha*phi2), alpha*fgf*phi2, beta*(1/(1+(phi1/K))-fgf)] 
     return dydt
     
 fgf0 = 0.30
@@ -291,7 +291,6 @@ for i in range(0,np.size(phi0_array,0)):
 time_point_y = np.linspace(0,1)
 time_point_x = np.ones(np.size(time_point_y))
 
-
 sol_phi=np.zeros((np.size(phi0_array,0),3,np.size(t,0)))
 
 for j in range(3): #states
@@ -313,26 +312,17 @@ plt.plot(t*timescale, sol[j][:,2], 'orange', label=r'$\phi_3$')
 plt.plot(fittedParameters[2]*time_point_x*timescale ,time_point_y,'--',color='gray')
 plt.plot(fittedParameters[3]*time_point_x*timescale ,time_point_y,'--',color='cadetblue')
 plt.plot((fittedParameters[3]+(fittedParameters[3]-fittedParameters[2]))*time_point_x*timescale ,time_point_y,'--',color='black')
-#plt.plot(popt24h[1]*time_point_x*timescale ,time_point_y,'--',color='gray')    #no signal
-#plt.plot(popt48h[1]*time_point_x*timescale ,time_point_y,'--',color='cadetblue')   #no signal
-#plt.plot(popt72h[1]*time_point_x*timescale ,time_point_y,'--',color='black')  #no signal
-#plt.legend(loc='best')
 plt.xlabel('signalling time (h)')
-#plt.grid()
 plt.show()
 modelfig.savefig('modelfig_221003.pdf',bbox_inches = "tight")   # save as .eps
 
 
-nSEM=2 #number od SEM
+nSEM=2 #number of SEM
 
-#sns.set_palette("ch:s=-.2,r=.9") 
-#s2fig = plt.figure()
 s2fig  = plt.figure(figsize=(4,4))
-#s2fig.set_aspect('equal')
 rc('axes',linewidth=2)  # box thickness
 rc('font',size = 15)   # font size ticks
 plt.axis([-0.05,1.05,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
-#plt.axis('scaled')
 plt.ylabel(r'$\phi_2$',fontsize=15, color = 'black') # y-label fontsize + color
 plt.xlabel(r'$\phi_2(0)$',fontsize=15, color = 'black')  # x-label fontsize + color # fit plot
 plt.plot(phi0_array,phi2_fit0(phi0_array,fittedParameters[0],fittedParameters[1],fittedParameters[2]),'--',color='gray')
@@ -342,9 +332,8 @@ plt.errorbar(data_GFP_24h_mean_control['GFP fraction'],data_GFP_24h_mean_control
 plt.errorbar(data_GFP_48h_mean_control['GFP fraction'],data_GFP_48h_mean_control['GFP fluo norm'],yerr=nSEM*data_GFP_48h_std_control['GFP fluo norm']/np.sqrt(data_GFP_48h_mean_control['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='48h',color='cadetblue')
 plt.errorbar(data_GFP_72h_mean_control['GFP fraction'],data_GFP_72h_mean_control['GFP fluo norm'],yerr=nSEM*data_GFP_72h_std_control['GFP fluo norm']/np.sqrt(data_GFP_72h_mean_control['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='72h',color='black')
 plt.legend(loc='upper center',ncol=3, fontsize =11, frameon= False)
-#plt.grid()
 plt.show()
-s2fig.savefig('T_dynamics_221003.pdf',bbox_inches = "tight")   # save as .eps
+s2fig.savefig('T_dynamics_221003.pdf',bbox_inches = "tight")   # save as .pdf
 
 # Output data
 
