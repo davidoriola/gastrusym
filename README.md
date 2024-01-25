@@ -35,7 +35,7 @@ with $\phi_A+\phi_B+\phi_C=1$, $\alpha=q/p$ and $K$ is the strength of the feedb
 \phi_B(\tau) &=& \frac{\phi_A(\tau) }{\phi_0} \left[1-\phi_0 + \phi_0 \log \left( \frac{\phi_0}{K} \right) - \phi_0 \log \left(\frac{\phi_A(\tau)}{K} \right) \right],\quad  \alpha =1 \nonumber 
 \end{eqnarray}
 ```
-where $\phi_0 \equiv \phi_A(0)=1-\phi_B(0)$ and $W$ is the Lambert W function. We simultaneously fit the averaged 24h, 48h and 72h datasets for the control case with 4 free parameters which are $\alpha, K, \tau_{24}, \tau_{48}$, where $\tau_{24}, \tau_{48}$ corresponds to the dimensionless 24h and 48h timepoints, respectively. Hence for the 24h fit we use $(\alpha, K, \tau_{24})$, for the 48h fit we use $(\alpha, K, \tau_{48})$ and for the 72h fit we use $(\alpha, K, 2\tau_{48}-\tau_{24})$. The timescale of the system is obtained as $p^{-1}=24 h/(\tau_{48}-\tau_{24})$. Once the parameters were obtained, the time evolution for states A, B and C was plotted using the model in Fig. 3C (left) chossing some initial conditions. 
+where $\phi_0 \equiv \phi_A(0)=1-\phi_B(0)$ and $W$ is the Lambert W function. We simultaneously fit the averaged 24h, 48h and 72h datasets for the control case with 4 free parameters which are $\alpha, K, \tau_{24}, \tau_{48}$, where $\tau_{24}, \tau_{48}$ corresponds to the dimensionless 24h and 48h timepoints, respectively. Hence for the 24h fit we use $(\alpha, K, \tau_{24})$, for the 48h fit we use $(\alpha, K, \tau_{48})$ and for the 72h fit we use $(\alpha, K, 2\tau_{48}-\tau_{24})$. The timescale of the system is obtained as $p^{-1}=24 h/(\tau_{48}-\tau_{24})$. Once the parameters were obtained, the time evolution for states A, B and C was plotted using the model in Fig. 3C (left) choosing some initial conditions. 
 
 ## Fits to the PDO3 case
 The fits were performed using `curve_fit` from `scipy.optimize`. The fits in Fig 3b PDO3 were done using following a first-order linear kinetics dimensionless model:
@@ -52,5 +52,5 @@ The analytical solution to the previous ODE system reads:
 \phi_B(t) &=& (1-\phi_0) e^{-\alpha \tau}+ \frac{\phi_0}{\alpha-1}(e^{-\tau}-e^{-\alpha \tau})
 \end{eqnarray}
 ```
-where $\phi_0 \equiv \phi_A(0) =1-\phi_B(0)$. Again, we simultaneously fit the averaged 24h, 48h and 72h datasets for the control case with now 3 free parameters which are $\alpha, \tau_{24}, \tau_{48}$. Once the parameters were obtained, the time evolution for states A, B and C was plotted using the model in Fig. 3C (left) chossing some initial conditions. 
+where $\phi_0 \equiv \phi_A(0) =1-\phi_B(0)$. Again, we simultaneously fit the averaged 24h, 48h and 72h datasets for the control case with now 3 free parameters which are $\alpha, \tau_{24}, \tau_{48}$. Once the parameters were obtained, the time evolution for states A, B and C was plotted using the model in Fig. 3C (right) choosing some initial conditions. 
 
