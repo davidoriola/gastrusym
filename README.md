@@ -20,17 +20,14 @@ would have if all cells were GFP+. Then the fraction of GFP+ cells in the aggreg
 
 ## Fits to the control case
 
-
-The fits were done using the following model:
-
-This case reads:
+The fits in Fig 3b control were done using the following dimensionless model:
 ```math
 \begin{eqnarray}
 \dot{\phi}_A &= & -  \frac{\phi_A }{1+\phi_A/K} \\
 \dot{\phi}_B &= & \frac{\phi_A-\alpha \phi_B}{1+\phi_A/K} 
 \end{eqnarray}
 ```
-and can be solved analytically:
+with $\phi_A+\phi_B+\phi_C=1$, $\alpha=q/p$ and $K$ is the strength of the feedback. $p$ corresponds to the transition rate $A \rightarrow B$ and $q$ corresponds to the transition rate $B \rightarrow C$. The previous ODE system can be solved analytically and the solution reads:
 ```math
 \begin{eqnarray}
 \phi_A(t) &=& K W \left(\frac{\phi_0}{K} e^{-t+\phi_0/K} \right) \\
@@ -38,5 +35,6 @@ and can be solved analytically:
 \phi_B(t) &=& \frac{\phi_A(t) }{\phi_0} \left[1-\phi_0 + \phi_0 \log \left( \frac{\phi_0}{K} \right) - \phi_0 \log \left(\frac{\phi_A(t)}{K} \right) \right],\quad  \alpha =1 \nonumber 
 \end{eqnarray}
 ```
+where $\phi_0=1-\phi_B(0)$ and $W$ is the Lambert W function. We simultaneously fit the averaged 24h, 48h and 72h datasets for the control case with 4 free parameters which are $\alpha, K, \tau_{24}, \tau_{48}$, where $\tau_{24}, \tau_{48}$ corresponds to the dimensionless 24h and 48h timepoints, respectively. Hence for the 24h fit we use $(\alpha, K, \tau_{24})$, for the 48h fit we use $(\alpha, K, \tau_{48})$ and for the 72h fit we use $(\alpha, K, 2\tau_{48}-\tau_{24})$. The timescale of the system is obtained as $k^{-1}=24 h/(\tau_{48}-\tau_{24})$. 
 
 
