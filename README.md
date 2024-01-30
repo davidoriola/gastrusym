@@ -13,7 +13,7 @@ The dataset includes the following data:
 - Dataset 8: Experiment 220705. `Condition`: Control, SB43, XAV.
 - Dataset 9: Experiment 220712. `Condition`: Control, SB43, XAV.
 
-The data used in Fig. 3b control corresponds to Datasets 1,2,3,4,5,6. `Condition`: Control, $(n=6)$. The data used in Fig. 3b PDO3 corresponds to Datasets 1,2,3. `Condition`: Control, $(n=3)$.
+The data used in Fig. 3b control corresponds to Datasets 1,2,3,4,5,6. `Condition`: Control, $(n=6)$. The data used in Fig. 3b PDO3 corresponds to Datasets 1,2,3. `Condition`: Control, $(n=3)$. Data in Fig. S6 corresponds to Datasets 8 and 9 $(n=2)$.
 
 ## Normalization of the GFP signal
 
