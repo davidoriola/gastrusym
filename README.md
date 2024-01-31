@@ -7,8 +7,6 @@ The dataset includes the following data:
 - Dataset 2: Experiment 220118. `Condition`: Control, PDO3.
 - Dataset 3: Experiment 220125. `Condition`: Control, PDO3.
 - Dataset 4: Experiment 220503. `Condition`: Control
-- Dataset 5: Experiment 220705. `Condition`: Control
-- Dataset 6: Experiment 220712. `Condition`: Control
 - Dataset 7: Experiment 220517. `Condition`: Control
 - Dataset 8: Experiment 220705. `Condition`: Control, SB43, XAV.
 - Dataset 9: Experiment 220712. `Condition`: Control, SB43, XAV.
