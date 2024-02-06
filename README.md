@@ -72,3 +72,33 @@ $$\phi_B(t) = (1-\phi_0) e^{-\alpha t}+ \frac{\phi_0}{\alpha-1}(e^{-t}-e^{-\alph
 where $\phi_0 \equiv \phi_A(0) =1-\phi_B(0)$. Again, we simultaneously fit the averaged 24h, 48h and 72h datasets for the control case with now 3 free parameters which are $\alpha, T_{24}, T_{48}$. Once the parameters were obtained, the time evolution for states A, B and C was plotted using the model in Fig. 3C (right) choosing some initial conditions. 
 
 </details>
+
+# Radial analysis
+
+This section contains all the information regarding the radial analysis in the cell proportion experiments. 
+
+<details>
+  
+<summary> Radial analysis procedure </summary>
+
+## Radial analysis procedure
+
+We first pre-processed the SiR-DNA signal $I_{\rm sirDNA}$ for each aggregate by removing high intensity peaks corresponding to $0.3 \%$ of the total signal. Next, the relative intensity measure $\delta I = I_{\rm sirDNA}/\langle I_{\rm sirDNA} \rangle - I_{\rm GFP}/\langle I_{\rm GFP} \rangle$ was computed for each aggregate image, where the spatial average $\langle \ldots \rangle$ was performed in the mask region. The relative intensity radial profiles for each aggregate were obtained by counting the values $\delta I$ in a set of pixels at a distance $r$ from the center of mass of the aggregate and normalizing by this value. Finally, in order to average the profiles over different aggregates, we first normalised the radial axis by interpolating the profiles.
+
+</details>
+
+<details>
+  
+<summary> Datasets radial analysis </summary>
+
+## Datasets radial analysis
+  
+The datasets can be found in the repository `XXX`. They include the `.tif` files of the images corresponding to the brightfield (BF), GFP and SiR-DNA channels. The datasets also include the masks obtained after segmentation with [MOrgAna](https://github.com/LabTrivedi/MOrgAna). The different experimental replicates are:
+
+- Replicate 1: Experiment 210610. (Fig. S8)
+- Replicate 2: Experiment 211116. (Fig. 4B and Fig. S8)
+- Replicate 3: Experiment 220510. (Fig. S8)
+
+</details>
+
+
