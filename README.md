@@ -97,7 +97,7 @@ The datasets can be found in the repository `XXX`. They include the `.tif` files
 
 ## Radial analysis procedure
 
-We first pre-processed the SiR-DNA signal $I_{\rm sirDNA}$ for each aggregate by removing high intensity peaks corresponding to $0.3 \%$ of the total signal. Next, the relative intensity measure $\delta I = I_{\rm sirDNA}/\langle I_{\rm sirDNA} \rangle - I_{\rm GFP}/\langle I_{\rm GFP} \rangle$ was computed for each aggregate image, where the spatial average $\langle \ldots \rangle$ was performed in the mask region. The relative intensity radial profiles for each aggregate were obtained by counting the values $\delta I$ in a set of pixels at a distance $r$ from the center of mass of the aggregate and normalizing by this value. Finally, in order to average the profiles over different aggregates, we first normalised the radial axis by interpolating the profiles.
+We first pre-processed the SiR-DNA signal $I_{\rm sirDNA}$ for each aggregate by removing high intensity peaks corresponding to 0.3 \% of the total signal. Next, the relative intensity measure $\delta I = I_{\rm sirDNA}/\langle I_{\rm sirDNA} \rangle - I_{\rm GFP}/\langle I_{\rm GFP} \rangle$ was computed for each aggregate image, where the spatial average $\langle \ldots \rangle$ was performed in the mask region. The relative intensity radial profiles for each aggregate were obtained by counting the values $\delta I$ in a set of pixels at a distance $r$ from the center of mass of the aggregate and normalizing by this value. Finally, in order to average the profiles over different aggregates, we first normalised the radial axis by interpolating the profiles.
 
 </details>
 
