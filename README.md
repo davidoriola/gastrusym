@@ -1,5 +1,6 @@
 ## Datasets cell proportion dynamics
-
+<details>
+  
 Each experimental dataset includes the `Condition`, initial `GFP fraction` ($\phi$), `GFP fluo` $I(\phi)$, `GFP fluo SD` $\delta I(\phi)$ and `Num samples` $N$, which corresponds to the number of gastruloids analyzed in the dataset for the certain condition. 
 
 The dataset includes the following data:
@@ -9,6 +10,8 @@ The dataset includes the following data:
 - Dataset 4: Experiment 220503. `Condition`: Control
 - Dataset 5: Experiment 220705. `Condition`: Control, SB43, XAV.
 - Dataset 6: Experiment 220712. `Condition`: Control, SB43, XAV.
+
+<details>
 
 The data used in Fig. 3b control corresponds to Datasets 1,2,3,4,5,6. `Condition`: Control, $(n=6)$. The data used in Fig. 3b PDO3 corresponds to Datasets 1,2,3. `Condition`: Control, $(n=3)$. Data in Fig. S6 corresponds to Datasets 5 and 6 $(n=2)$.
 
