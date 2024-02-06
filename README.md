@@ -1,5 +1,6 @@
 # Cell proportion dynamics
 
+This section corresponds to the data analysis done in the cell proportion experiments. 
 
 <details>
   
@@ -7,7 +8,7 @@
 
 ## Datasets cell proportion dynamics
   
-Each experimental dataset includes the `Condition`, initial `GFP fraction` ($\phi$), `GFP fluo` $I(\phi)$, `GFP fluo SD` $\delta I(\phi)$ and `Num samples` $N$, which corresponds to the number of gastruloids analyzed in the dataset for the certain condition. 
+The datasets are found in the folder `Analysis_fits`. Each experimental dataset includes the `Condition`, initial `GFP fraction` ($\phi$), `GFP fluo` $I(\phi)$, `GFP fluo SD` $\delta I(\phi)$ and `Num samples` $N$, which corresponds to the number of gastruloids analyzed in the dataset for the certain condition. 
 
 The dataset includes the following data:
 - Dataset 1: Experiment 211130. `Condition`: Control, PDO3.
