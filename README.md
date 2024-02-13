@@ -8,7 +8,7 @@ This section corresponds to the data analysis done in the cell proportion experi
 
 ## Datasets cell proportion dynamics
   
-The datasets are found in the folder `Analysis_fits` and `Analysis_Ctrl_SB43_XAV`. Each experimental dataset includes the `Condition`, initial `GFP fraction` ($\phi$), `GFP fluo` $I(\phi)$, `GFP fluo SD` $\delta I(\phi)$ and `Num samples` $N$, which corresponds to the number of gastruloids analyzed in the dataset for the certain condition. 
+The datasets are found in the folder `Analysis_fits` and `Analysis_Ctrl_SB43_XAV`. Each experimental dataset includes the `Condition`, initial `GFP fraction` ($\phi$), `GFP fluo` $I(\phi)$, `GFP fluo SD` $\delta I(\phi)$ and `Num samples` $N$, which corresponds to the number of gastruloids analyzed in the dataset for the certain initial `GFP fraction`. 
 
 The dataset includes the following data:
 - Dataset 1: Experiment 211130. `Condition`: Control, PDO3.
@@ -101,5 +101,23 @@ We first pre-processed the SiR-DNA signal $I_{\rm sirDNA}$ for each aggregate by
 
 </details>
 
+# Aspect ratio and polarization analysis
 
+This section corresponds to the morphological and polarization analysis done in the cell proportion experiments. 
+
+<details>
+  
+<summary> Aspect ratio and polarization analysis </summary>
+
+To obtain the long ($L$) and short ($d$) axis of gastruloids, the brightfield images were straightened using [MOrgAna](https://github.com/LabTrivedi/MOrgAna). The averaged anteroposterior intensity profile $I(x)$ was obtained by analysing several gastruloids using  [MOrgAna](https://github.com/LabTrivedi/MOrgAna), where $x$ was the normalised anteroposterior axis such that $x \in [0,1]$. The polarization parameter $P$ was defined as the first dipolar moment $P(x) = \int_0^1 I(x)(x-1/2)dx / \int_0^1 I(x)$. 
+
+The datasets are found in the folder `Morphometric_fluorescence_analysis`. Each experimental dataset includes the `Condition`, initial `GFP fraction` ($\phi$), average `Aspect ratio` $L/d$, average `Polarization` $P$ and `Num samples` $N$, which corresponds to the number of gastruloids analyzed in the dataset for the certain initial `GFP fraction`.
+
+- Replicate 1: Experiment 220118. 
+- Replicate 2: Experiment 220125. 
+- Replicate 3: Experiment 220503.
+- Replicate 4: Experiment 220705.
+- Replicate 5: Experiment 220712.
+
+</details>
 
