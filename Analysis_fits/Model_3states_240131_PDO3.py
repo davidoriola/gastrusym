@@ -59,21 +59,21 @@ dir_path = os.path.abspath(os.getcwd()) # get path
 
 # Experiment 211130
 
-output_unmixing_analysis_24h_GFP_211130 =os.path.join(dir_path,'data_24_GFP_211130.csv')
-output_unmixing_analysis_48h_GFP_211130 =os.path.join(dir_path,'data_48_GFP_211201.csv')
-output_unmixing_analysis_72h_GFP_211130 =os.path.join(dir_path,'data_72_GFP_211202.csv')
+output_unmixing_analysis_24h_GFP_211130 =os.path.join(dir_path,'output_24_GFP_211130.csv')
+output_unmixing_analysis_48h_GFP_211130 =os.path.join(dir_path,'output_48_GFP_211201.csv')
+output_unmixing_analysis_72h_GFP_211130 =os.path.join(dir_path,'output_72_GFP_211202.csv')
 
 # Experiment 220118
 
-output_unmixing_analysis_24h_GFP_220118 =os.path.join(dir_path,'data_24_GFP_220118.csv')
-output_unmixing_analysis_48h_GFP_220118 =os.path.join(dir_path,'data_48_GFP_220119.csv')
-output_unmixing_analysis_72h_GFP_220118 =os.path.join(dir_path,'data_72_GFP_220120.csv')
+output_unmixing_analysis_24h_GFP_220118 =os.path.join(dir_path,'output_24_GFP_220118.csv')
+output_unmixing_analysis_48h_GFP_220118 =os.path.join(dir_path,'output_48_GFP_220119.csv')
+output_unmixing_analysis_72h_GFP_220118 =os.path.join(dir_path,'output_72_GFP_220120.csv')
 
 # Experiment 220125
 
-output_unmixing_analysis_24h_GFP_220125 =os.path.join(dir_path,'data_24_GFP_220125.csv')
-output_unmixing_analysis_48h_GFP_220125 =os.path.join(dir_path,'data_48_GFP_220126.csv')
-output_unmixing_analysis_72h_GFP_220125 =os.path.join(dir_path,'data_72_GFP_220127.csv')
+output_unmixing_analysis_24h_GFP_220125 =os.path.join(dir_path,'output_24_GFP_220125.csv')
+output_unmixing_analysis_48h_GFP_220125 =os.path.join(dir_path,'output_48_GFP_220126.csv')
+output_unmixing_analysis_72h_GFP_220125 =os.path.join(dir_path,'output_72_GFP_220127.csv')
 
 
 # get data
@@ -185,6 +185,7 @@ error = np.sqrt(np.diag(pcov))
 
 # Compute timescale of the system
 timescale = 24/(fittedParameters[2]-fittedParameters[1])  # (time in hours equivalent to 1 u.a. of time)
+time_array = [fittedParameters[1]*timescale,fittedParameters[2]*timescale,(fittedParameters[2]+(fittedParameters[2]-fittedParameters[1]))*timescale] # time array in signalling time
 
 ############ BEGIN SOLVE MODEL WITH FITTED PARAMETERS ##########################################################################################
 
@@ -226,6 +227,20 @@ for j in range(3): #states
         
 ############ END SOLVE MODEL WITH FITTED PARAMETERS ##########################################################################################
 
+# Plot experimental data and fit to the model for the control case
+
+nSEM=2 #number of SEM
+
+# Create timelapse data
+data_phi0_mean = []
+data_phi0_std = []
+phi0_value_array = [0.0,0.2,0.5,0.8,1.0]
+
+for i in range(0,5): # loop over phi
+    phi0_value=phi0_value_array[i]
+    data_phi0_mean.append([data_GFP_24h_mean_PDO3[data_GFP_24h_mean_PDO3['GFP fraction']==phi0_value]['GFP fluo norm'].iloc[0],data_GFP_48h_mean_PDO3[data_GFP_48h_mean_PDO3['GFP fraction']==phi0_value]['GFP fluo norm'].iloc[0],data_GFP_72h_mean_PDO3[data_GFP_72h_mean_PDO3['GFP fraction']==phi0_value]['GFP fluo norm'].iloc[0]])
+    data_phi0_std.append([nSEM*data_GFP_24h_std_PDO3[data_GFP_24h_std_PDO3['GFP fraction']==phi0_value]['GFP fluo norm'].iloc[0]/np.sqrt(data_GFP_24h_std_PDO3[data_GFP_24h_std_PDO3['GFP fraction']==phi0_value]['Num samples'].iloc[0]),nSEM*data_GFP_48h_std_PDO3[data_GFP_48h_std_PDO3['GFP fraction']==phi0_value]['GFP fluo norm'].iloc[0]/np.sqrt(data_GFP_48h_std_PDO3[data_GFP_48h_std_PDO3['GFP fraction']==phi0_value]['Num samples'].iloc[0]),nSEM*data_GFP_72h_std_PDO3[data_GFP_72h_std_PDO3['GFP fraction']==phi0_value]['GFP fluo norm'].iloc[0]/np.sqrt(data_GFP_72h_std_PDO3[data_GFP_72h_std_PDO3['GFP fraction']==phi0_value]['Num samples'].iloc[0])])
+
 # Plot experimental data and fit to the model for the PDO3 case
 
 j=20 # initial condition (phi2(0)=0.2)
@@ -238,9 +253,9 @@ rc('font',size = 15)   # font size ticks
 plt.axis([-0.05,1.05,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
 plt.ylabel(r'$\phi_2$',fontsize=15, color = 'black') # y-label fontsize + color
 plt.xlabel(r'$\phi_2(0)$',fontsize=15, color = 'black')  # x-label fontsize + color # fit plot
-plt.plot(phi0_array,phi2_fit_nosignal(phi0_array,fittedParameters[0],fittedParameters[1]),'--',color='gray')
-plt.plot(phi0_array,phi2_fit_nosignal(phi0_array,fittedParameters[0],fittedParameters[2]),'--',color='cadetblue')
-plt.plot(phi0_array,phi2_fit_nosignal(phi0_array,fittedParameters[0],fittedParameters[2]+(fittedParameters[2]-fittedParameters[1])),'--',color='black')
+plt.plot(phi0_array,phi2_fit_nosignal(phi0_array,fittedParameters[0],fittedParameters[1]),'-',color='gray')
+plt.plot(phi0_array,phi2_fit_nosignal(phi0_array,fittedParameters[0],fittedParameters[2]),'-',color='cadetblue')
+plt.plot(phi0_array,phi2_fit_nosignal(phi0_array,fittedParameters[0],fittedParameters[2]+(fittedParameters[2]-fittedParameters[1])),'-',color='black')
 plt.errorbar(data_GFP_24h_mean_PDO3['GFP fraction'],data_GFP_24h_mean_PDO3['GFP fluo norm'],yerr=nSEM*data_GFP_24h_std_PDO3['GFP fluo norm']/np.sqrt(data_GFP_24h_mean_PDO3['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='24h',color='gray')
 plt.errorbar(data_GFP_48h_mean_PDO3['GFP fraction'],data_GFP_48h_mean_PDO3['GFP fluo norm'],yerr=nSEM*data_GFP_48h_std_PDO3['GFP fluo norm']/np.sqrt(data_GFP_48h_mean_PDO3['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='48h',color='cadetblue')
 plt.errorbar(data_GFP_72h_mean_PDO3['GFP fraction'],data_GFP_72h_mean_PDO3['GFP fluo norm'],yerr=nSEM*data_GFP_72h_std_PDO3['GFP fluo norm']/np.sqrt(data_GFP_72h_mean_PDO3['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='72h',color='black')
@@ -255,6 +270,7 @@ plt.axis([0,60,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
 plt.plot(t*timescale, sol[j][:,0], 'magenta', label=r'$\phi_1$')
 plt.plot(t*timescale, sol[j][:,1], 'green', label=r'$\phi_2$')
 plt.plot(t*timescale, sol[j][:,2], 'orange', label=r'$\phi_3$')
+plt.errorbar(time_array,data_phi0_mean[1],yerr=data_phi0_std[1],marker='o',fmt=' ',capthick=2,capsize=5,color='green')
 plt.plot(fittedParameters[1]*time_point_x*timescale ,time_point_y,'--',color='gray')    #no signal
 plt.plot(fittedParameters[2]*time_point_x*timescale ,time_point_y,'--',color='cadetblue')   #no signal
 plt.plot((fittedParameters[2]+(fittedParameters[2]-fittedParameters[1]))*time_point_x*timescale,time_point_y,'--',color='black')  #no signal

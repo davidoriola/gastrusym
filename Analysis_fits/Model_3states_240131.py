@@ -62,39 +62,39 @@ dir_path = os.path.abspath(os.getcwd()) # get path
 
 # Experiment 211130
 
-output_unmixing_analysis_24h_GFP_211130 =os.path.join(dir_path,'data_24_GFP_211130.csv')
-output_unmixing_analysis_48h_GFP_211130 =os.path.join(dir_path,'data_48_GFP_211201.csv')
-output_unmixing_analysis_72h_GFP_211130 =os.path.join(dir_path,'data_72_GFP_211202.csv')
+output_unmixing_analysis_24h_GFP_211130 =os.path.join(dir_path,'output_24_GFP_211130.csv')
+output_unmixing_analysis_48h_GFP_211130 =os.path.join(dir_path,'output_48_GFP_211201.csv')
+output_unmixing_analysis_72h_GFP_211130 =os.path.join(dir_path,'output_72_GFP_211202.csv')
 
 # Experiment 220118
 
-output_unmixing_analysis_24h_GFP_220118 =os.path.join(dir_path,'data_24_GFP_220118.csv')
-output_unmixing_analysis_48h_GFP_220118 =os.path.join(dir_path,'data_48_GFP_220119.csv')
-output_unmixing_analysis_72h_GFP_220118 =os.path.join(dir_path,'data_72_GFP_220120.csv')
+output_unmixing_analysis_24h_GFP_220118 =os.path.join(dir_path,'output_24_GFP_220118.csv')
+output_unmixing_analysis_48h_GFP_220118 =os.path.join(dir_path,'output_48_GFP_220119.csv')
+output_unmixing_analysis_72h_GFP_220118 =os.path.join(dir_path,'output_72_GFP_220120.csv')
 
 # Experiment 220125
 
-output_unmixing_analysis_24h_GFP_220125 =os.path.join(dir_path,'data_24_GFP_220125.csv')
-output_unmixing_analysis_48h_GFP_220125 =os.path.join(dir_path,'data_48_GFP_220126.csv')
-output_unmixing_analysis_72h_GFP_220125 =os.path.join(dir_path,'data_72_GFP_220127.csv')
+output_unmixing_analysis_24h_GFP_220125 =os.path.join(dir_path,'output_24_GFP_220125.csv')
+output_unmixing_analysis_48h_GFP_220125 =os.path.join(dir_path,'output_48_GFP_220126.csv')
+output_unmixing_analysis_72h_GFP_220125 =os.path.join(dir_path,'output_72_GFP_220127.csv')
 
 # Experiment 220503
 
-output_unmixing_analysis_24h_GFP_220503 =os.path.join(dir_path,'data_24_GFP_220503.csv')
-output_unmixing_analysis_48h_GFP_220503 =os.path.join(dir_path,'data_48_GFP_220504.csv')
-output_unmixing_analysis_72h_GFP_220503 =os.path.join(dir_path,'data_72_GFP_220505.csv')
+output_unmixing_analysis_24h_GFP_220503 =os.path.join(dir_path,'output_24_GFP_220503.csv')
+output_unmixing_analysis_48h_GFP_220503 =os.path.join(dir_path,'output_48_GFP_220504.csv')
+output_unmixing_analysis_72h_GFP_220503 =os.path.join(dir_path,'output_72_GFP_220505.csv')
 
 # Experiment 220705
 
-output_unmixing_analysis_24h_GFP_220705 =os.path.join(dir_path,'data_24_GFP_220705.csv')
-output_unmixing_analysis_48h_GFP_220705 =os.path.join(dir_path,'data_48_GFP_220706.csv')
-output_unmixing_analysis_72h_GFP_220705 =os.path.join(dir_path,'data_72_GFP_220707.csv')
+output_unmixing_analysis_24h_GFP_220705 =os.path.join(dir_path,'output_24_GFP_220705.csv')
+output_unmixing_analysis_48h_GFP_220705 =os.path.join(dir_path,'output_48_GFP_220706.csv')
+output_unmixing_analysis_72h_GFP_220705 =os.path.join(dir_path,'output_72_GFP_220707.csv')
 
 # Experiment 220712
 
-output_unmixing_analysis_24h_GFP_220712=os.path.join(dir_path,'data_24_GFP_220712.csv')
-output_unmixing_analysis_48h_GFP_220712=os.path.join(dir_path,'data_48_GFP_220713.csv')
-output_unmixing_analysis_72h_GFP_220712 =os.path.join(dir_path,'data_72_GFP_220714.csv')
+output_unmixing_analysis_24h_GFP_220712=os.path.join(dir_path,'output_24_GFP_220712.csv')
+output_unmixing_analysis_48h_GFP_220712=os.path.join(dir_path,'output_48_GFP_220713.csv')
+output_unmixing_analysis_72h_GFP_220712 =os.path.join(dir_path,'output_72_GFP_220714.csv')
 
 
 # get data
@@ -295,9 +295,9 @@ rc('font',size = 15)   # font size ticks
 plt.axis([-0.05,1.05,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
 plt.ylabel(r'$\phi_2$',fontsize=15, color = 'black') # y-label fontsize + color
 plt.xlabel(r'$\phi_2(0)$',fontsize=15, color = 'black')  # x-label fontsize + color # fit plot
-plt.plot(phi0_array,phi2_fit0(phi0_array,fittedParameters[0],fittedParameters[1],fittedParameters[2]),'--',color='gray')
-plt.plot(phi0_array,phi2_fit0(phi0_array,fittedParameters[0],fittedParameters[1],fittedParameters[3]),'--',color='cadetblue')
-plt.plot(phi0_array,phi2_fit0(phi0_array,fittedParameters[0],fittedParameters[1],fittedParameters[3]+(fittedParameters[3]-fittedParameters[2])),'--',color='black')
+plt.plot(phi0_array,phi2_fit0(phi0_array,fittedParameters[0],fittedParameters[1],fittedParameters[2]),'-',color='gray')
+plt.plot(phi0_array,phi2_fit0(phi0_array,fittedParameters[0],fittedParameters[1],fittedParameters[3]),'-',color='cadetblue')
+plt.plot(phi0_array,phi2_fit0(phi0_array,fittedParameters[0],fittedParameters[1],fittedParameters[3]+(fittedParameters[3]-fittedParameters[2])),'-',color='black')
 plt.errorbar(data_GFP_24h_mean_control['GFP fraction'],data_GFP_24h_mean_control['GFP fluo norm'],yerr=nSEM*data_GFP_24h_std_control['GFP fluo norm']/np.sqrt(data_GFP_24h_mean_control['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='24h',color='gray')
 plt.errorbar(data_GFP_48h_mean_control['GFP fraction'],data_GFP_48h_mean_control['GFP fluo norm'],yerr=nSEM*data_GFP_48h_std_control['GFP fluo norm']/np.sqrt(data_GFP_48h_mean_control['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='48h',color='cadetblue')
 plt.errorbar(data_GFP_72h_mean_control['GFP fraction'],data_GFP_72h_mean_control['GFP fluo norm'],yerr=nSEM*data_GFP_72h_std_control['GFP fluo norm']/np.sqrt(data_GFP_72h_mean_control['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='72h',color='black')
@@ -313,11 +313,11 @@ rc('font',size = 15)   # font size ticks
 plt.axis([0,80,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
 plt.ylabel(r'T+ fraction $\phi_B$',fontsize=15, color = 'black') # y-label fontsize + color
 plt.xlabel('signalling time (h)',fontsize=15, color = 'black')  # x-label fontsize + color # fit plot
-plt.plot(t*timescale, sol[0][:,1],'--',color='black',label=r'$\phi_B(0)=0$')
-plt.plot(t*timescale, sol[19][:,1],'--',color='gray',label=r'$\phi_B(0)=0.2$')
-plt.plot(t*timescale, sol[49][:,1],'--',color='cadetblue',label=r'$\phi_B(0)=0.5$')
-plt.plot(t*timescale, sol[79][:,1],'--',color='green',label=r'$\phi_B(0)=0.8$')
-plt.plot(t*timescale, sol[99][:,1],'--',color='orange',label=r'$\phi_B(0)=1.0$')
+plt.plot(t*timescale, sol[0][:,1],'-',color='black',label=r'$\phi_B(0)=0$')
+plt.plot(t*timescale, sol[19][:,1],'-',color='gray',label=r'$\phi_B(0)=0.2$')
+plt.plot(t*timescale, sol[49][:,1],'-',color='cadetblue',label=r'$\phi_B(0)=0.5$')
+plt.plot(t*timescale, sol[79][:,1],'-',color='green',label=r'$\phi_B(0)=0.8$')
+plt.plot(t*timescale, sol[99][:,1],'-',color='orange',label=r'$\phi_B(0)=1.0$')
 plt.errorbar(time_array,data_phi0_mean[0],yerr=data_phi0_std[0],marker='o',fmt=' ',capthick=2,capsize=5,color='black')
 plt.errorbar(time_array,data_phi0_mean[1],yerr=data_phi0_std[1],marker='o',fmt=' ',capthick=2,capsize=5,color='gray')
 plt.errorbar(time_array,data_phi0_mean[2],yerr=data_phi0_std[2],marker='o',fmt=' ',capthick=2,capsize=5,color='cadetblue')
@@ -338,6 +338,7 @@ plt.axis([0,60,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
 plt.plot(t*timescale, sol[j][:,0], 'magenta', label=r'$\phi_1$')
 plt.plot(t*timescale, sol[j][:,1], 'green', label=r'$\phi_2$')
 plt.plot(t*timescale, sol[j][:,2], 'orange', label=r'$\phi_3$')
+plt.errorbar(time_array,data_phi0_mean[1],yerr=data_phi0_std[1],marker='o',fmt=' ',capthick=2,capsize=5,color='green')
 plt.plot(fittedParameters[2]*time_point_x*timescale ,time_point_y,'--',color='gray')
 plt.plot(fittedParameters[3]*time_point_x*timescale ,time_point_y,'--',color='cadetblue')
 plt.plot((fittedParameters[3]+(fittedParameters[3]-fittedParameters[2]))*time_point_x*timescale ,time_point_y,'--',color='black')
