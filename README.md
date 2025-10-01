@@ -18,7 +18,7 @@ The dataset includes the following data:
 - Dataset 5: Experiment 220705. `Condition`: Control, SB43, XAV.
 - Dataset 6: Experiment 220712. `Condition`: Control, SB43, XAV.
 
-The data used in Fig. 5B control corresponds to Datasets 1,2,3,4,5,6. `Condition`: Control, $(n=6)$. The data used in Fig. 5B Nodal/Tgf-$\beta$ inhibition corresponds to Datasets 5,6. `Condition`: SB43, $(n=2)$
+The data used in Fig. 5B control corresponds to Datasets 1,2,3,4,5,6. `Condition`: Control, $(n=6)$. The data used in Fig. 5B Nodal/Tgf- $\beta$ inhibition corresponds to Datasets 5,6. `Condition`: SB43, $(n=2)$
 The data used in Fig. S13 corresponds to Datasets 1,2,3, `Condition`: PDO3, $(n=3)$ and Datasets 5,6, `Condition`: XAV, $(n=2)$ . Data in Fig. S12 corresponds to Datasets 1,2,3, 5 and 6.
 
 </details>
