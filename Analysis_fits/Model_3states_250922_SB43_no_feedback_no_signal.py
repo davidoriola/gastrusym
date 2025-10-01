@@ -231,9 +231,6 @@ for train_index, test_index in kf.split(comboX):
         param_list.append(fittedParameters0)
         y_pred = combo_phi2_fit0(x_test, *fittedParameters0)
         mse = mean_squared_error(y_test, y_pred)
-        #popt, _ = curve_fit(model_func, x_train, y_train, p0=[1, 1, 0, 0])
-       # y_pred = model_func(x_test, *popt)
-       # mse = mean_squared_error(y_test, y_pred)
     except RuntimeError:
         # If fitting fails, assign a high error
         popt = [np.nan] * 2
@@ -342,7 +339,7 @@ plt.errorbar(data_GFP_48h_mean_PDO3['GFP fraction'],data_GFP_48h_mean_PDO3['GFP 
 plt.errorbar(data_GFP_72h_mean_PDO3['GFP fraction'],data_GFP_72h_mean_PDO3['GFP fluo norm'],yerr=nSEM*data_GFP_72h_std_PDO3['GFP fluo norm']/np.sqrt(data_GFP_72h_mean_PDO3['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='72h',color='black')
 plt.legend(loc='upper center',ncol=3, fontsize =11, frameon= False)
 plt.show()
-s2fig.savefig('T_dynamics_250924_SB43.pdf',bbox_inches = "tight")   # save as .eps
+s2fig.savefig('T_dynamics_250922_SB43_nop_nofeedback.pdf',bbox_inches = "tight")   # save as .eps
 
 modelfig  = plt.figure(figsize=(4,4))
 rc('axes',linewidth=2)  # box thickness
@@ -357,9 +354,9 @@ plt.plot(fittedParameters[1]*time_point_x*timescale ,time_point_y,'--',color='ca
 plt.plot((fittedParameters[1]+(fittedParameters[1]-fittedParameters[0]))*time_point_x*timescale,time_point_y,'--',color='black')  #no signal
 plt.xlabel('signalling time (h)')
 plt.show()
-modelfig.savefig('modelfig_250924_SB43.pdf',bbox_inches = "tight")   # save as .eps
+modelfig.savefig('modelfig_250922_SB43_nop_nofeedback.pdf',bbox_inches = "tight")   # save as .eps
 
 # Ouput fitting params
 
 output_fit_SB43_nop_Kinf = pd.DataFrame({'p':[0,0],'q':[q,error_q],'K':[inf,inf],'T24(h)':[timescale*fittedParameters[0],timescale*error[0]],'T48(h)':[timescale*fittedParameters[1],timescale*error[1]]})
-#output_fit_SB43.to_csv('output_fit_params_SB43_250403.csv')
+output_fit_SB43_nop_Kinf.to_csv('output_fit_params_SB43_250922_nop_nofeedback.csv')

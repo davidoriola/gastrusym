@@ -366,7 +366,7 @@ plt.errorbar(data_GFP_72h_mean_control['GFP fraction'],data_GFP_72h_mean_control
 #plt.errorbar(data_GFP_72h_mean_control['GFP fraction'],data_GFP_72h_mean_control['GFP fluo norm'],yerr=data_GFP_72h_std_control['GFP fluo norm'],marker='o',fmt=' ',capthick=2,capsize=5, label='72h',color='black')
 plt.legend(loc='upper center',ncol=3, fontsize =11, frameon= False)
 plt.show()
-s2fig.savefig('T_dynamics_250924_fig1_fit_SD.pdf',bbox_inches = "tight")   # save as .eps
+s2fig.savefig('T_dynamics_250922_fig1_fit.pdf',bbox_inches = "tight")   # save as .eps
 
 # T Dynamics vs time for the control case
 
@@ -388,7 +388,7 @@ plt.errorbar(time_array,data_phi0_mean[3],yerr=data_phi0_std[3],marker='o',fmt='
 plt.errorbar(time_array,data_phi0_mean[4],yerr=data_phi0_std[4],marker='o',fmt=' ',capthick=2,capsize=5,color='orange')
 plt.legend(loc='upper right', fontsize =8, frameon= False)
 plt.show()
-s2fig_time.savefig('modelfig_250924_time_control.pdf',bbox_inches = "tight")   # save as .eps
+s2fig_time.savefig('modelfig_250922_time_control.pdf',bbox_inches = "tight")   # save as .eps
 
 # T Dynamics vs time for the control case (only 0,0.5 and 1)
 
@@ -398,19 +398,12 @@ rc('font',size = 15)   # font size ticks
 plt.axis([20,80,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
 plt.ylabel(r'T+ fraction $\phi_B$',fontsize=15, color = 'black') # y-label fontsize + color
 plt.xlabel('time (hpa)',fontsize=15, color = 'black')  # x-label fontsize + color # fit plot
-#plt.plot(t*timescale, sol[0][:,1],'-',color='black',label=r'$\phi_B(0)=0$')
-#plt.plot(t*timescale, sol[19][:,1],'-',color='gray',label=r'$\phi_B(0)=0.2$')
-#plt.plot(t*timescale, sol[49][:,1],'-',color='cadetblue',label=r'$\phi_B(0)=0.5$')
-#plt.plot(t*timescale, sol[79][:,1],'-',color='green',label=r'$\phi_B(0)=0.8$')
-#plt.plot(t*timescale, sol[99][:,1],'-',color='orange',label=r'$\phi_B(0)=1.0$')
 plt.errorbar(time_array_realtime,data_phi0_mean[0],yerr=data_phi0_std[0],marker='o',fmt='-',capthick=2,capsize=5,color='black')
-#plt.errorbar(time_array,data_phi0_mean[1],yerr=data_phi0_std[1],marker='o',fmt=' ',capthick=2,capsize=5,color='gray')
 plt.errorbar(time_array_realtime,data_phi0_mean[2],yerr=data_phi0_std[2],marker='o',fmt='-',capthick=2,capsize=5,color='cadetblue')
-#plt.errorbar(time_array,data_phi0_mean[3],yerr=data_phi0_std[3],marker='o',fmt=' ',capthick=2,capsize=5,color='green')
 plt.errorbar(time_array_realtime,data_phi0_mean[4],yerr=data_phi0_std[4],marker='o',fmt='-',capthick=2,capsize=5,color='orange')
 plt.legend(loc='upper right', fontsize =8, frameon= False)
 plt.show()
-s2fig_time.savefig('modelfig_250924_time_reduced_control.pdf',bbox_inches = "tight")   # save as .eps
+s2fig_time.savefig('modelfig_250922_time_reduced_control.pdf',bbox_inches = "tight")   # save as .eps
 
 # Model time evolution of the different states with the fitted parameters for the control case
 
@@ -429,7 +422,7 @@ plt.plot(fittedParameters[3]*time_point_x*timescale ,time_point_y,'--',color='ca
 plt.plot((fittedParameters[3]+(fittedParameters[3]-fittedParameters[2]))*time_point_x*timescale ,time_point_y,'--',color='black')
 plt.xlabel('signalling time (h)')
 plt.show()
-modelfig.savefig('modelfig_250924_control.pdf',bbox_inches = "tight")   # save as .eps
+modelfig.savefig('modelfig_250922_control.pdf',bbox_inches = "tight")   # save as .eps
 
 # Ouput data
 
@@ -443,4 +436,4 @@ output_72h_GFP_mean.to_csv('output_72h_GFP_mean.csv')
 # Ouput fitting params
 
 output_fit_control = pd.DataFrame({'p':[p,error_p],'q':[q,error_q],'K':[fittedParameters[1],error[1]],'T24(h)':[timescale*fittedParameters[2],timescale*error[2]],'T48(h)':[timescale*fittedParameters[3],timescale*error[3]]})
-output_fit_control.to_csv('output_fit_params_control_250306.csv')
+output_fit_control.to_csv('output_fit_params_control_250922.csv')

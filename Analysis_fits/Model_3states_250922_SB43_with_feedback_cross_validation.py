@@ -228,9 +228,6 @@ for train_index, test_index in kf.split(comboX):
         param_list.append(fittedParameters0)
         y_pred = combo_phi2_fit0(x_test, *fittedParameters0)
         mse = mean_squared_error(y_test, y_pred)
-        #popt, _ = curve_fit(model_func, x_train, y_train, p0=[1, 1, 0, 0])
-       # y_pred = model_func(x_test, *popt)
-       # mse = mean_squared_error(y_test, y_pred)
     except RuntimeError:
         # If fitting fails, assign a high error
         popt = [np.nan] * 4
@@ -342,23 +339,9 @@ plt.errorbar(data_GFP_48h_mean_PDO3['GFP fraction'],data_GFP_48h_mean_PDO3['GFP 
 plt.errorbar(data_GFP_72h_mean_PDO3['GFP fraction'],data_GFP_72h_mean_PDO3['GFP fluo norm'],yerr=nSEM*data_GFP_72h_std_PDO3['GFP fluo norm']/np.sqrt(data_GFP_72h_mean_PDO3['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='72h',color='black')
 plt.legend(loc='upper center',ncol=3, fontsize =11, frameon= False)
 plt.show()
-s2fig.savefig('T_dynamics_250304_SB43.pdf',bbox_inches = "tight")   # save as .eps
+s2fig.savefig('T_dynamics_250922_SB43.pdf',bbox_inches = "tight")   # save as .eps
 
-# modelfig  = plt.figure(figsize=(4,4))
-# rc('axes',linewidth=2)  # box thickness
-# rc('font',size = 15)   # font size ticks
-# plt.axis([0,60,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
-# plt.plot(t*timescale, sol[j][:,0], 'magenta', label=r'$\phi_1$')
-# plt.plot(t*timescale, sol[j][:,1], 'green', label=r'$\phi_2$')
-# plt.plot(t*timescale, sol[j][:,2], 'brown', label=r'$\phi_3$')
-# plt.errorbar(time_array,data_phi0_mean[1],yerr=data_phi0_std[1],marker='o',fmt=' ',capthick=2,capsize=5,color='green')
-# plt.plot(fittedParameters[1]*time_point_x*timescale ,time_point_y,'--',color='gray')    #no signal
-# plt.plot(fittedParameters[2]*time_point_x*timescale ,time_point_y,'--',color='cadetblue')   #no signal
-# plt.plot((fittedParameters[2]+(fittedParameters[2]-fittedParameters[1]))*time_point_x*timescale,time_point_y,'--',color='black')  #no signal
-# plt.xlabel('signalling time (h)')
-# plt.show()
-# modelfig.savefig('modelfig_240131_PDO3.pdf',bbox_inches = "tight")   # save as .eps
 
 output_fit_SB43 = pd.DataFrame({'p':[p,error_p],'q':[q,error_q],'K':[fittedParameters[1],error[1]],'T24(h)':[timescale*fittedParameters[2],timescale*error[2]],'T48(h)':[timescale*fittedParameters[3],timescale*error[3]]})
-#output_fit_XAV.to_csv('output_fit_params_XAV_feedback_250306.csv')
+output_fit_SB43.to_csv('output_fit_params_SB43_250922.csv')
 

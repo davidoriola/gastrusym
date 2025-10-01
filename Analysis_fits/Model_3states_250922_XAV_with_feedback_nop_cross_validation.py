@@ -50,14 +50,6 @@ def phi2_fit_nosignal(phi20, K, T1):
     phi0=1-phi20
     return (1-phi0)*np.exp(-T1/(1+phi0/K))
 
-# Analytical solution for phi2(t) with feedback
-#def phi2_fit0(phi20,alpha, K, T1):
-#    phi0=1-phi20
-#    if alpha == 1:
-#        return (fun(phi0,K,T1)/phi0)*(1-phi0+phi0*np.log(phi0/K)-phi0*np.log(fun(phi0,K,T1)/K))
-#    else: 
-#        return (1/(alpha-1))*(fun(phi0,K,T1)+(-1+alpha-alpha*phi0)*pow(fun(phi0,K,T1)/phi0,alpha))
-    
 # Multi function to fit phi2 at 3 different time points with 4 parameters
 def combo_phi2_fit0(comboData, K, T24, T48):
     
@@ -235,9 +227,6 @@ for train_index, test_index in kf.split(comboX):
         param_list.append(fittedParameters0)
         y_pred = combo_phi2_fit0(x_test, *fittedParameters0)
         mse = mean_squared_error(y_test, y_pred)
-        #popt, _ = curve_fit(model_func, x_train, y_train, p0=[1, 1, 0, 0])
-       # y_pred = model_func(x_test, *popt)
-       # mse = mean_squared_error(y_test, y_pred)
     except RuntimeError:
         # If fitting fails, assign a high error
         popt = [np.nan] * 3
@@ -343,7 +332,7 @@ plt.errorbar(data_GFP_48h_mean_PDO3['GFP fraction'],data_GFP_48h_mean_PDO3['GFP 
 plt.errorbar(data_GFP_72h_mean_PDO3['GFP fraction'],data_GFP_72h_mean_PDO3['GFP fluo norm'],yerr=nSEM*data_GFP_72h_std_PDO3['GFP fluo norm']/np.sqrt(data_GFP_72h_mean_PDO3['Num samples']),marker='o',fmt=' ',capthick=2,capsize=5, label='72h',color='black')
 plt.legend(loc='upper center',ncol=3, fontsize =11, frameon= False)
 plt.show()
-s2fig.savefig('T_dynamics_250924_XAV.pdf',bbox_inches = "tight")   # save as .eps
+s2fig.savefig('T_dynamics_250922_XAV.pdf',bbox_inches = "tight")   # save as .eps
 
 modelfig  = plt.figure(figsize=(4,4))
 rc('axes',linewidth=2)  # box thickness
@@ -358,60 +347,10 @@ plt.plot(fittedParameters[2]*time_point_x*timescale ,time_point_y,'--',color='ca
 plt.plot((fittedParameters[2]+(fittedParameters[2]-fittedParameters[1]))*time_point_x*timescale ,time_point_y,'--',color='black')
 plt.xlabel('signalling time (h)')
 plt.show()
-modelfig.savefig('modelfig_250924_XAV.pdf',bbox_inches = "tight")   # save as .eps
+modelfig.savefig('modelfig_250922_XAV.pdf',bbox_inches = "tight")   # save as .eps
 
-
-# # T Dynamics vs time for the control case
-
-#s2fig_time  = plt.figure(figsize=(4,4))
-#rc('axes',linewidth=2)  # box thickness
-#rc('font',size = 15)   # font size ticks
-# plt.axis([0,80,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
-# plt.ylabel(r'T+ fraction $\phi_B$',fontsize=15, color = 'black') # y-label fontsize + color
-# plt.xlabel('signalling time (h)',fontsize=15, color = 'black')  # x-label fontsize + color # fit plot
-# plt.plot(t*timescale, sol[0][:,1],'-',color='black',label=r'$\phi_B(0)=0$')
-# plt.plot(t*timescale, sol[19][:,1],'-',color='gray',label=r'$\phi_B(0)=0.2$')
-# plt.plot(t*timescale, sol[49][:,1],'-',color='cadetblue',label=r'$\phi_B(0)=0.5$')
-# plt.plot(t*timescale, sol[79][:,1],'-',color='green',label=r'$\phi_B(0)=0.8$')
-# plt.plot(t*timescale, sol[99][:,1],'-',color='orange',label=r'$\phi_B(0)=1.0$')
-# plt.errorbar(time_array,data_phi0_mean[0],yerr=data_phi0_std[0],marker='o',fmt=' ',capthick=2,capsize=5,color='black')
-# plt.errorbar(time_array,data_phi0_mean[1],yerr=data_phi0_std[1],marker='o',fmt=' ',capthick=2,capsize=5,color='gray')
-# plt.errorbar(time_array,data_phi0_mean[2],yerr=data_phi0_std[2],marker='o',fmt=' ',capthick=2,capsize=5,color='cadetblue')
-# plt.errorbar(time_array,data_phi0_mean[3],yerr=data_phi0_std[3],marker='o',fmt=' ',capthick=2,capsize=5,color='green')
-# plt.errorbar(time_array,data_phi0_mean[4],yerr=data_phi0_std[4],marker='o',fmt=' ',capthick=2,capsize=5,color='orange')
-# plt.legend(loc='upper right', fontsize =8, frameon= False)
-# plt.show()
-# s2fig_time.savefig('modelfig_240131_time_new.pdf',bbox_inches = "tight")   # save as .eps
-
-# # Model time evolution of the different states with the fitted parameters for the control case
-
-# j=20 # initial condition for state B (phi2(0)=0.2)
-
-# modelfig  = plt.figure(figsize=(4,4))
-# rc('axes',linewidth=2)  # box thickness
-# rc('font',size = 15)   # font size ticks
-# plt.axis([0,60,0,1])    # range of the y and x axis ([xmin,xmax,ymin,ymax])
-# plt.plot(t*timescale, sol[j][:,0], 'magenta', label=r'$\phi_1$')
-# plt.plot(t*timescale, sol[j][:,1], 'green', label=r'$\phi_2$')
-# plt.plot(t*timescale, sol[j][:,2], 'orange', label=r'$\phi_3$')
-# plt.errorbar(time_array,data_phi0_mean[1],yerr=data_phi0_std[1],marker='o',fmt=' ',capthick=2,capsize=5,color='green')
-# plt.plot(fittedParameters[2]*time_point_x*timescale ,time_point_y,'--',color='gray')
-# plt.plot(fittedParameters[3]*time_point_x*timescale ,time_point_y,'--',color='cadetblue')
-# plt.plot((fittedParameters[3]+(fittedParameters[3]-fittedParameters[2]))*time_point_x*timescale ,time_point_y,'--',color='black')
-# plt.xlabel('signalling time (h)')
-# plt.show()
-# modelfig.savefig('modelfig_240131.pdf',bbox_inches = "tight")   # save as .eps
-
-# # Ouput data
-
-# output_24h_GFP_mean = pd.DataFrame({'phi2(0)':data_GFP_24h_mean_control['GFP fraction'],'phi2':data_GFP_24h_mean_control['GFP fluo norm'],'2*SE':nSEM*data_GFP_24h_std_control['GFP fluo norm']/np.sqrt(data_GFP_24h_mean_control['Num samples'])})
-# output_48h_GFP_mean = pd.DataFrame({'phi2(0)':data_GFP_48h_mean_control['GFP fraction'],'phi2':data_GFP_48h_mean_control['GFP fluo norm'],'2*SE':nSEM*data_GFP_48h_std_control['GFP fluo norm']/np.sqrt(data_GFP_48h_mean_control['Num samples'])})
-# output_72h_GFP_mean = pd.DataFrame({'phi2(0)':data_GFP_72h_mean_control['GFP fraction'],'phi2':data_GFP_72h_mean_control['GFP fluo norm'],'2*SE':nSEM*data_GFP_72h_std_control['GFP fluo norm']/np.sqrt(data_GFP_72h_mean_control['Num samples'])})
-# output_24h_GFP_mean.to_csv('output_24h_GFP_mean.csv')
-# output_48h_GFP_mean.to_csv('output_48h_GFP_mean.csv')
-# output_72h_GFP_mean.to_csv('output_72h_GFP_mean.csv')
 
 # Ouput fitting params
 
 output_fit_XAV_nop = pd.DataFrame({'p':[0,0],'q':[q,error_q],'K':[fittedParameters[0],error[0]],'T24(h)':[timescale*fittedParameters[1],timescale*error[1]],'T48(h)':[timescale*fittedParameters[2],timescale*error[2]]})
-output_fit_XAV_nop.to_csv('output_fit_params_XAV_nop_250924.csv')
+output_fit_XAV_nop.to_csv('output_fit_params_XAV_nop_250922.csv')
