@@ -72,39 +72,39 @@ dir_path = os.path.abspath(os.getcwd()) # get path
 
 # Experiment 211130
 
-output_unmixing_analysis_24h_GFP_211130 =os.path.join(dir_path,'output_24_GFP_211130.csv')
-output_unmixing_analysis_48h_GFP_211130 =os.path.join(dir_path,'output_48_GFP_211201.csv')
-output_unmixing_analysis_72h_GFP_211130 =os.path.join(dir_path,'output_72_GFP_211202.csv')
+output_unmixing_analysis_24h_GFP_211130 =os.path.join(dir_path,'data_24_GFP_211130.csv')
+output_unmixing_analysis_48h_GFP_211130 =os.path.join(dir_path,'data_48_GFP_211201.csv')
+output_unmixing_analysis_72h_GFP_211130 =os.path.join(dir_path,'data_72_GFP_211202.csv')
 
 # Experiment 220118
 
-output_unmixing_analysis_24h_GFP_220118 =os.path.join(dir_path,'output_24_GFP_220118.csv')
-output_unmixing_analysis_48h_GFP_220118 =os.path.join(dir_path,'output_48_GFP_220119.csv')
-output_unmixing_analysis_72h_GFP_220118 =os.path.join(dir_path,'output_72_GFP_220120.csv')
+output_unmixing_analysis_24h_GFP_220118 =os.path.join(dir_path,'data_24_GFP_220118.csv')
+output_unmixing_analysis_48h_GFP_220118 =os.path.join(dir_path,'data_48_GFP_220119.csv')
+output_unmixing_analysis_72h_GFP_220118 =os.path.join(dir_path,'data_72_GFP_220120.csv')
 
 # Experiment 220125
 
-output_unmixing_analysis_24h_GFP_220125 =os.path.join(dir_path,'output_24_GFP_220125.csv')
-output_unmixing_analysis_48h_GFP_220125 =os.path.join(dir_path,'output_48_GFP_220126.csv')
-output_unmixing_analysis_72h_GFP_220125 =os.path.join(dir_path,'output_72_GFP_220127.csv')
+output_unmixing_analysis_24h_GFP_220125 =os.path.join(dir_path,'data_24_GFP_220125.csv')
+output_unmixing_analysis_48h_GFP_220125 =os.path.join(dir_path,'data_48_GFP_220126.csv')
+output_unmixing_analysis_72h_GFP_220125 =os.path.join(dir_path,'data_72_GFP_220127.csv')
 
 # Experiment 220503
 
-output_unmixing_analysis_24h_GFP_220503 =os.path.join(dir_path,'output_24_GFP_220503.csv')
-output_unmixing_analysis_48h_GFP_220503 =os.path.join(dir_path,'output_48_GFP_220504.csv')
-output_unmixing_analysis_72h_GFP_220503 =os.path.join(dir_path,'output_72_GFP_220505.csv')
+output_unmixing_analysis_24h_GFP_220503 =os.path.join(dir_path,'data_24_GFP_220503.csv')
+output_unmixing_analysis_48h_GFP_220503 =os.path.join(dir_path,'data_48_GFP_220504.csv')
+output_unmixing_analysis_72h_GFP_220503 =os.path.join(dir_path,'data_72_GFP_220505.csv')
 
 # Experiment 220705
 
-output_unmixing_analysis_24h_GFP_220705 =os.path.join(dir_path,'output_24_GFP_220705.csv')
-output_unmixing_analysis_48h_GFP_220705 =os.path.join(dir_path,'output_48_GFP_220706.csv')
-output_unmixing_analysis_72h_GFP_220705 =os.path.join(dir_path,'output_72_GFP_220707.csv')
+output_unmixing_analysis_24h_GFP_220705 =os.path.join(dir_path,'data_24_GFP_220705.csv')
+output_unmixing_analysis_48h_GFP_220705 =os.path.join(dir_path,'data_48_GFP_220706.csv')
+output_unmixing_analysis_72h_GFP_220705 =os.path.join(dir_path,'data_72_GFP_220707.csv')
 
 # Experiment 220712
 
-output_unmixing_analysis_24h_GFP_220712=os.path.join(dir_path,'output_24_GFP_220712.csv')
-output_unmixing_analysis_48h_GFP_220712=os.path.join(dir_path,'output_48_GFP_220713.csv')
-output_unmixing_analysis_72h_GFP_220712 =os.path.join(dir_path,'output_72_GFP_220714.csv')
+output_unmixing_analysis_24h_GFP_220712=os.path.join(dir_path,'data_24_GFP_220712.csv')
+output_unmixing_analysis_48h_GFP_220712=os.path.join(dir_path,'data_48_GFP_220713.csv')
+output_unmixing_analysis_72h_GFP_220712 =os.path.join(dir_path,'data_72_GFP_220714.csv')
 
 
 # get data
