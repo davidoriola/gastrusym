@@ -1,4 +1,4 @@
-# Cell proportion dynamics
+# 1. Cell proportion dynamics
 
 This section corresponds to the data analysis done in the cell proportion experiments. 
 
