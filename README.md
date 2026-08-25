@@ -1,3 +1,5 @@
+Repository of the Materials and Methods used to analyse the experimental data in the manuscript {\it Collective fate decisions and cell rearrangements underlie gastruloid symmetry breaking}. 
+
 # Cell proportion dynamics
 
 This section corresponds to the data analysis done in the cell proportion experiments. 
